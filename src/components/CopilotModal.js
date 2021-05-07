@@ -270,9 +270,12 @@ class CopilotModal extends Component<Props, State> {
     if(this.props.currentStep.showReflectionArrow) {
       const style = {
         ...this.state.arrow,
+        bottom: -12,
+        right: MARGIN,
+        top: undefined,
+        left: undefined,
       };
-      style.left = undefined;
-      style.right = this.tooltip.tooltip.right + MARGIN;
+
       showReflectionArrowComponent = <Animated.View key="showReflectionArrow" style={[styles.arrow, style]} />
     }
     
@@ -295,7 +298,7 @@ class CopilotModal extends Component<Props, State> {
         />
       </Animated.View>,
       <Animated.View key="arrow" style={[styles.arrow, this.state.arrow]} />,
-      showReflectionArrowComponent,
+      
       <Animated.View key="tooltip" style={[styles.tooltip, this.state.tooltip, this.props.tooltipStyle]}>
         <TooltipComponent
           isFirstStep={this.props.isFirstStep}
@@ -306,6 +309,7 @@ class CopilotModal extends Component<Props, State> {
           handleStop={this.handleStop}
           labels={this.props.labels}
         />
+        {showReflectionArrowComponent}
       </Animated.View>,
     ];
   }
