@@ -28,7 +28,6 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: '#fff',
     borderRadius: 3,
-    overflow: 'hidden',
   },
   tooltipText: {
 
