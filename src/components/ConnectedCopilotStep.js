@@ -8,6 +8,7 @@ type Props = {
   text: string,
   order: number,
   active?: boolean,
+  showReflectionArrow?: boolean;
   _copilot: CopilotContext,
   children: React$Element
 };
@@ -46,6 +47,7 @@ class ConnectedCopilotStep extends Component<Props> {
       name: this.props.name,
       text: this.props.text,
       order: this.props.order,
+      showReflectionArrow: this.props.showReflectionArrow,
       target: this,
       wrapper: this.wrapper,
     });
