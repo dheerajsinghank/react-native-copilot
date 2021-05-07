@@ -265,6 +265,17 @@ class CopilotModal extends Component<Props, State> {
       stepNumberComponent: StepNumberComponent,
     } = this.props;
 
+    let showReflectionArrowComponent;
+
+    if(this.props.currentStep.showReflectionArrow) {
+      const style = {
+        ...this.state.arrow,
+      };
+      style.left = undefined;
+      style.right = this.tooltip.tooltip.right + MARGIN;
+      showReflectionArrowComponent = <Animated.View key="showReflectionArrow" style={[styles.arrow, style]} />
+    }
+    
     return [
       <Animated.View
         key="stepNumber"
@@ -284,6 +295,7 @@ class CopilotModal extends Component<Props, State> {
         />
       </Animated.View>,
       <Animated.View key="arrow" style={[styles.arrow, this.state.arrow]} />,
+      showReflectionArrowComponent,
       <Animated.View key="tooltip" style={[styles.tooltip, this.state.tooltip, this.props.tooltipStyle]}>
         <TooltipComponent
           isFirstStep={this.props.isFirstStep}
